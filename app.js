@@ -25,7 +25,7 @@ const User = require('./models/user');
 const mongoSanitize = require('express-mongo-sanitize');
 const helmet = require('helmet'); //secure your Express apps by setting various HTTP headers
 
-const MongoDBStore = require('connect-mongo'); //change the default store
+const MongoDBStore = require('connect-mongo').default;
 
 const dbUrl = process.env.DB_URL;
 mongoose
