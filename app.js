@@ -174,6 +174,8 @@ app.use((error, req, res, next) => {
 	const { statusCode = 500, message = 'Something went wrong' } = error;
 	res.status(statusCode).render('views-ejs/error', { error });
 });
+
+const port = process.env.PORT || 3000;
 app.listen(3000, () => {
-	console.log('Serving on port 3000');
+	console.log(`Serving on port ${port}`);
 });
