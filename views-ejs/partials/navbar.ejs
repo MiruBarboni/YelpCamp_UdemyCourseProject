@@ -1,0 +1,40 @@
+<!-- used sticky-top to force the navbarstaying on top of the screen when scrolling -->
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+	<div class="container-fluid">
+		<a class="navbar-brand" href="#">YelpCamp</a>
+		<button
+			class="navbar-toggler"
+			type="button"
+			data-bs-toggle="collapse"
+			data-bs-target="#navbarNavAltMarkup"
+			aria-controls="navbarNavAltMarkup"
+			aria-expanded="false"
+			aria-label="Toggle navigation"
+		>
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div
+			class="collapse navbar-collapse"
+			style="display: flex; justify-content: space-between"
+			id="navbarNavAltMarkup"
+		>
+			<div class="navbar-nav">
+				<!-- Added .active class on .nav-link to indicate the current page. -->
+				<!-- Added the aria-current attribute on the active .nav-link. -->
+				<a class="nav-link" href="/">Home</a>
+				<a class="nav-link" href="/campgrounds">Campgrounds</a>
+				<a class="nav-link" href="/campgrounds/new">New campground</a>
+			</div>
+			<div class="navbar-nav">
+				<% if(!currentUser){ %>
+				<a href="/login" class="nav-link">Login</a>
+				<a href="/register" class="nav-link">Register</a>
+				<% }else{ %>
+				<a href="/logout" class="nav-link">Logout</a>
+				<% } %>
+			</div>
+		</div>
+	</div>
+</nav>
+<!-- .container class is a responsive, fixed-width container, meaning its max-width changes at each breakpoint. -->
+<!-- mt-5 stayinf for margin-top to be 5px -->

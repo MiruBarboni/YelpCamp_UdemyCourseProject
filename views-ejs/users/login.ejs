@@ -1,0 +1,56 @@
+<% layout('views-ejs/layouts/boilerplate')%>
+<div class="container d-flex justify-content-center align-items-center mt-5">
+	<div class="row">
+		<div class="col-md-6 offset-md-3 col-xl-4 offset-xl-4">
+			<div class="card shadow">
+				<img
+					src="https://images.unsplash.com/photo-1537225228614-56cc3556d7ed?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+					alt=""
+					class="card-img-top"
+				/>
+				<div class="card-body">
+					<h1 class="card-title">Login</h1>
+					<div class="row">
+						<form
+							action="/login?redirectUrl=<%=url%> "
+							method="post"
+							class="needs-validation"
+							novalidate
+						>
+							<!-- username -->
+							<div class="mb-3">
+								<label class="form-label" for="username">Username</label>
+								<input
+									type="text"
+									id="username"
+									name="username"
+									class="form-control"
+									required
+									autofocus
+								/>
+								<div class="invalid-feedback">Please enter your username.</div>
+							</div>
+
+							<!-- password -->
+							<div class="mb-3">
+								<label class="form-label" for="password">Password</label>
+								<input
+									type="password"
+									id="password"
+									name="password"
+									class="form-control"
+									required
+								/>
+								<div class="invalid-feedback">Please enter your password.</div>
+							</div>
+
+							<div class="d-grid col-12 mx-auto">
+								<button class="btn btn-success btn-block">Login</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

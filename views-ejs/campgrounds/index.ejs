@@ -1,0 +1,59 @@
+<% layout('views-ejs/layouts/boilerplate')%>
+
+<link rel="stylesheet" href="/stylesheets/clusterMap.css" />
+
+<div id="clusterMap"></div>
+
+<h1>All campgrounds:</h1>
+<a href="/campgrounds/new">Add a new campground</a>
+
+<% for(let campground of campgrounds){ %>
+
+<!-- A card is a flexible and extensible content container -->
+<div class="card mb-3 mt-3">
+	<div class="row">
+		<!-- col-md-4: This class is used when the device size is medium or greater than 768px 
+		and the maximum width of container is 720px and you want the width equal to 4 columns. -->
+		<!-- Bootstrap Grid System allows up to 12 columns across the page -->
+		<div class="col-md-4">
+			<% if(campground.images.length) {%>
+			<img
+				class="img-fluid"
+				alt="CampgroundImage"
+				src="<%=campground.images[0].url%>"
+				crossorigin="anonymous"
+			/>
+			<!-- crossorigin="anonymous"was added tt solve Helmet Express error: ERR_BLOCKED_BY_RESPONSE.NotSameOriginAfterDefaultedToSameOriginByCoep 200 -->
+		</div>
+		<% }else{ %>
+		<img class="img-fluid" alt="CampgroundImage" src="" />
+		<% } %>
+		<div class="col-md-8">
+			<div class="card-body">
+				<h5 class="card-title"><%=campground.title %></h5>
+				<p class="card-text"><%=campground.description%></p>
+				<p class="card-text">
+					<small id="loc" class="text-muted"> <%=campground.location %> </small>
+				</p>
+				<a class="btn btn-success" href="/campgrounds/<%=campground._id%>"
+					>View <%=campground.title%></a
+				>
+			</div>
+		</div>
+	</div>
+</div>
+<% } %>
+
+<script defer src="./javascripts/MarkerCluster.js"></script>
+
+<script>
+	window.mapLocations = [];
+	('<% for(let location of locations){%>');
+	window.mapLocations.push('<%=location%>');
+	('<%}%>');
+
+	window.campTitles = [];
+	('<% for(let title of titles){%>');
+	window.campTitles.push('<%=title%>');
+	('<%}%>');
+</script>

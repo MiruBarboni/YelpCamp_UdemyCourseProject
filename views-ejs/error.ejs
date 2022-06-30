@@ -1,0 +1,15 @@
+<% layout('views-ejs/layouts/boilerplate')%>
+<div class="row">
+	<div class="col-6 offset-3">
+		<div class="alert alert-danger" role="alert">
+			<h4 class="alert-heading">Error</h4>
+			<p><%= error.message %></p>
+
+			<!-- display the error stack only in dev. mode -->
+			<% if(process.env.NODE_ENV !== 'production'){ %>
+			<hr />
+			<p class="mb-0"><%= error.statusCode %></p>
+			<%}%>
+		</div>
+	</div>
+</div>

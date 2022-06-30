@@ -1,0 +1,91 @@
+<% layout('views-ejs/layouts/boilerplate')%>
+<div class="row">
+	<h1 class="text-center">New Campground</h1>
+	<!-- offset-3 moves the class over 3 columns -->
+	<div class="col-md-6 offset-md-3">
+		<form
+			action="/campgrounds"
+			method="POST"
+			novalidate
+			class="needs-validation"
+			enctype="multipart/form-data"
+		>
+			<!-- title -->
+			<div class="mb-3">
+				<label class="form-label" for="title">Title</label>
+				<input
+					type="text"
+					id="title"
+					name="campground[title]"
+					class="form-control"
+					required
+				/>
+				<div class="invalid-feedback">Please choose a title.</div>
+			</div>
+
+			<!-- location -->
+			<div class="mb-3">
+				<label class="form-label" for="location">Location</label>
+				<input
+					type="text"
+					id="location"
+					name="campground[location]"
+					class="form-control"
+					required
+				/>
+				<div class="invalid-feedback">Please choose a location.</div>
+			</div>
+
+			<!-- image url -->
+			<div class="mb-3">
+				<label class="form-label" for="image">Upload image(s)</label>
+				<input
+					type="file"
+					class="form-control"
+					id="image"
+					name="image"
+					id=""
+					multiple
+					required
+				/>
+				<div class="invalid-feedback">Please choose an image.</div>
+			</div>
+
+			<!-- description -->
+			<div class="mb-3">
+				<label class="form-label" for="description">Descripton</label>
+
+				<textarea
+					id="description"
+					name="campground[description]"
+					class="form-control"
+					required
+				></textarea>
+				<div class="invalid-feedback">Please choose a description.</div>
+			</div>
+
+			<!-- price -->
+			<div class="mb-3">
+				<label class="form-label" for="price">Price</label>
+				<div class="input-group">
+					<span class="input-group-text" id="price-label">$</span>
+					<input
+						type="text"
+						name="campground[price]"
+						class="form-control"
+						placeholder="0.00"
+						aria-label="price"
+						aria-describedby="price-label"
+						required
+					/>
+					<div class="invalid-feedback">Please choose a price.</div>
+				</div>
+			</div>
+
+			<div class="mb-3">
+				<button class="btn btn-success">Add a campground</button>
+			</div>
+			<a href="/campgrounds">All Campgrounds</a>
+		</form>
+	</div>
+</div>
