@@ -4,10 +4,10 @@ const cities = require('./cities');
 const { places, descriptors } = require('./seedHelpers');
 
 mongoose
-	.connect(
-		'mongodb+srv://mirunaadmin:Procus123@learning.xnr3u.mongodb.net/yelpCamp?retryWrites=true&w=majority',
-		{ useNewUrlParser: true, useUnifiedTopology: true }
-	)
+	.connect(process.env.DB_URL, {
+		useNewUrlParser: true,
+		useUnifiedTopology: true,
+	})
 	.then(() => {
 		console.log('Mongo Connection opened!');
 	})
